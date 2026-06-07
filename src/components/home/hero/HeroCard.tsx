@@ -1,9 +1,8 @@
-"use client";
 
 const HeroCard = () => {
   return (
-    <div className="mt-10 w-full max-w-md rounded-2xl border border-white/10 bg-black/30 p-6 shadow-2xl">
-      <h2 className="mb-5 text-center text-lg font-semibold">
+    <div className="mt-10 w-full max-w-md rounded-2xl border border-white/10 bg-white/20 p-6 shadow-xl">
+      <h2 className="mb-5 text-center text-lg font-semibold ">
         ¡Contanos tus gustos!
       </h2>
 
@@ -31,7 +30,7 @@ const HeroCard = () => {
           </select>
         </div>
 
-        <button className=" w-full rounded-xl bg-red-600 py-3 font-semibold transition duration-300 hover:bg-red-500 hover:scale-110">
+        <button className=" w-full rounded-xl bg-yellow-600 py-3 font-semibold transition duration-300 hover:bg-yellow-500 hover:scale-110">
           Recomendar
         </button>
       </div>
