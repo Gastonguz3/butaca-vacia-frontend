@@ -13,11 +13,16 @@ const page = () => {
 
   return (
     <section className="flex flex-col min-h-[70vh] items-center justify-center ">
-      <h1 className="text-3xl md:text-4xl font-extrabold ">Iniciar Sesión</h1>
-      <div className="rounded-lg border-black bg-white/30 w-[90%] md:w-[70%] lg:w-[40%] mt-4 px-3 py-5 ">
+      <h1 className="text-3xl md:text-4xl font-extrabold  ">
+        ¡Bienvenido de Nuevo!
+      </h1>
+      <p className="mt-3 text-gray-300 font-semibold text-center px-4">
+        Tu butaca te estaba esperando, toma asiento y descubrí qué ver esta dia
+      </p>
+      <div className="rounded-lg border-black bg-white/20 w-[90%] md:w-[70%] lg:w-[40%] mt-5 px-3 py-5 ">
         {/*Formulario */}
-        {/*Email */}
         <form action="" className="space-y-4">
+          {/*Email */}
           <label className="font-medium text-gray-200">Email</label>
           <div className="relative">
             <FaUser className=" absolute left-3 top-1/2 -translate-y-1/2" />
@@ -61,7 +66,7 @@ const page = () => {
           </div>*/}
         </form>
         <div className="flex mt-6 gap-1 text-sm md:text-base justify-end">
-          <p className=" ">No tenes cuenta?</p>
+          <p>¿No tenes cuenta?</p>
           <Link
             href="/register"
             className="font-semibold hover:text-yellow-400 cursor-pointer"
