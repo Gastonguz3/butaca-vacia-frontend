@@ -1,24 +1,27 @@
+import { Genre } from "@/types/genre";
 import { apiFetch } from "./api";
+import { Series } from "@/types/series/series";
+import { PaginatedResponse } from "@/types/paginated-response";
+import { SeriesDetails } from "@/types/series/series-details";
 
 export const SeriesService = {
-  getGenres() {
-    return apiFetch("/series/genres");
+  getGenres(): Promise<Genre[]> {
+    return apiFetch<Genre[]>("/series/genres");
   },
 
-  searchByGenre(genre: number) {
-    return apiFetch(`/series/search?genre=${genre}`);
+  searchByGenre(genre: number): Promise<PaginatedResponse<Series>> {
+    return apiFetch<PaginatedResponse<Series>>(`/series/search?genre=${genre}`);
   },
 
-  getPopular(){
-    return apiFetch("/series/popular")
+  getPopular(): Promise<PaginatedResponse<Series>> {
+    return apiFetch<PaginatedResponse<Series>>("/series/popular");
   },
 
-  getDetails(id: number){
-    return apiFetch(`/series/${id}`)
+  getDetails(id: number): Promise<SeriesDetails> {
+    return apiFetch<SeriesDetails>(`/series/${id}`);
   },
 
-  getRecommendations(id: number){
-    return apiFetch(`/series/${id}/recommendations`)
-  }
-
+  getRecommendations(id: number): Promise<Series[]> {
+    return apiFetch<Series[]>(`/series/${id}/recommendations`);
+  },
 };

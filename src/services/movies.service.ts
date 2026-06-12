@@ -1,24 +1,27 @@
+import { Genre } from "@/types/genre";
 import { apiFetch } from "./api";
+import { PaginatedResponse } from "@/types/paginated-response";
+import { Movie } from "@/types/movies/movie";
+import { MovieDetails } from "@/types/movies/movie-details";
 
 export const MoviesService = {
-  getGenres() {
-    return apiFetch("/movies/genres");
+  getGenres(): Promise<Genre[]> {
+    return apiFetch<Genre[]>("/movies/genres");
   },
 
-  searchByGenre(genre: number) {
-    return apiFetch(`/movies/search?genre=${genre}`);
+  searchByGenre(genre: number): Promise<PaginatedResponse<Movie>> {
+    return apiFetch<PaginatedResponse<Movie>>(`/movies/search?genre=${genre}`);
   },
 
-  getPopular(){
-    return apiFetch("/movies/popular")
+  getPopular(): Promise<PaginatedResponse<Movie>> {
+    return apiFetch<PaginatedResponse<Movie>>("/movies/popular");
   },
 
-  getDetails(id: number){
-    return apiFetch(`/movies/${id}`)
+  getDetails(id: number): Promise<MovieDetails> {
+    return apiFetch<MovieDetails>(`/movies/${id}`);
   },
 
-  getRecommendations(id: number){
-    return apiFetch(`/movies/${id}/recommendations`)
-  }
-
+  getRecommendations(id: number): Promise<Movie[]> {
+    return apiFetch<Movie[]>(`/movies/${id}/recommendations`);
+  },
 };
