@@ -6,22 +6,22 @@ import { SeriesDetails } from "@/types/series/series-details";
 
 export const SeriesService = {
   getGenres(): Promise<Genre[]> {
-    return apiFetch<Genre[]>("/series/genres");
+    return apiFetch<Genre[]>("/api/series/genres");
   },
 
   searchByGenre(genre: number): Promise<PaginatedResponse<Series>> {
-    return apiFetch<PaginatedResponse<Series>>(`/series/search?genre=${genre}`);
+    return apiFetch<PaginatedResponse<Series>>(`/api/series/search?genre=${genre}`);
   },
 
   getPopular(): Promise<PaginatedResponse<Series>> {
-    return apiFetch<PaginatedResponse<Series>>("/series/popular");
+    return apiFetch<PaginatedResponse<Series>>("/api/series/popular");
   },
 
   getDetails(id: number): Promise<SeriesDetails> {
-    return apiFetch<SeriesDetails>(`/series/${id}`);
+    return apiFetch<SeriesDetails>(`/api/series/${id}`);
   },
 
   getRecommendations(id: number): Promise<Series[]> {
-    return apiFetch<Series[]>(`/series/${id}/recommendations`);
+    return apiFetch<Series[]>(`/api/series/${id}/recommendations`);
   },
 };
