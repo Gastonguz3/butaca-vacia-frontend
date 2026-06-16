@@ -9,8 +9,8 @@ export const SeriesService = {
     return apiFetch<Genre[]>("/api/series/genres");
   },
 
-  searchByGenre(genre: number): Promise<PaginatedResponse<Series>> {
-    return apiFetch<PaginatedResponse<Series>>(`/api/series/search?genre=${genre}`);
+  discoverByGenre(genre: number): Promise<Series> {
+    return apiFetch<Series>(`/api/series/discover?genre=${genre}`);
   },
 
   getPopular(): Promise<PaginatedResponse<Series>> {

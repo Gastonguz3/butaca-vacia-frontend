@@ -9,8 +9,8 @@ export const MoviesService = {
     return apiFetch<Genre[]>("/api/movies/genres");
   },
 
-  searchByGenre(genre: number): Promise<PaginatedResponse<Movie>> {
-    return apiFetch<PaginatedResponse<Movie>>(`/api/movies/search?genre=${genre}`);
+  discoverByGenre(genre: number): Promise<Movie> {
+    return apiFetch<Movie>(`/api/movies/discover?genre=${genre}`);
   },
 
   getPopular(): Promise<PaginatedResponse<Movie>> {

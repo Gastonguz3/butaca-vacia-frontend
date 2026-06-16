@@ -35,29 +35,26 @@ const HeroCard = () => {
     if (!selectedGenre) return;
 
     try {
-      const response =
+      const resultResponse =
         mediaType === "movie"
-          ? await MoviesService.searchByGenre(selectedGenre)
-          : await SeriesService.searchByGenre(selectedGenre);
+          ? await MoviesService.discoverByGenre(selectedGenre)
+          : await SeriesService.discoverByGenre(selectedGenre);
 
-      const results = response.data;
-
-      if (!results.length) {
-        setRecommendation(null);
-        return;
-      }
-      //Mover luego al backend
-      const randomIndex = Math.floor(Math.random() * results.length);
-
-      setRecommendation(results[randomIndex]);
+      setRecommendation(resultResponse);
     } catch (error) {
       console.error(error);
     }
   }
 
   return (
-    <>
-      <div className="mt-10 w-full max-w-md rounded-2xl border border-white/10 bg-white/20 p-6 shadow-xl">
+    <div
+      className={`w-full mt-10 flex gap-8 transition-all duration-500 ${
+        recommendation
+          ? "flex-col md:flex-row md:-translate-x-2 justify-center items-start"
+          : "justify-center"
+      }`}
+    >
+      <div className="w-full max-w-md rounded-2xl border border-white/10 bg-white/20 p-6 shadow-xl">
         <h2 className="mb-5 text-center text-lg font-semibold ">
           ¡Contanos tus gustos!
         </h2>
@@ -108,29 +105,36 @@ const HeroCard = () => {
       </div>
 
       {recommendation && (
-        <div className="mt-6 w-full max-w-md rounded-2xl bg-black/40 p-4">
-          <Image
-            alt={recommendation.title}
-            src={`https://image.tmdb.org/t/p/w500${recommendation.poster_path}`}
-            width={300}
-            height={450}
-            className="mx-auto"
-          />
+        <div className=" w-full max-w-3xl rounded-2xl bg-black/40 p-4">
+          <div className="flex flex-col gap-4 md:flex-row">
+            <Image
+              alt="Poster de la pelicula o serie"
+              src={`https://image.tmdb.org/t/p/w500${recommendation.poster_path}`}
+              width={300}
+              height={450}
+              className="mx-auto rounded-xl md:mx-0 md:w-48"
+            />
 
-          <h3 className="mt-4 text-lg font-bold">
-            {recommendation.title ?? recommendation.original_title}
-          </h3>
+            <div className="flex flex-col">
+              <h3 className="text-lg font-bold">
+                {mediaType === "movie"
+                  ? (recommendation.title ?? recommendation.original_title)
+                  : (recommendation.name ?? recommendation.original_name)}
+              </h3>
 
-          <p className="mt-2 text-sm text-gray-300">
-            {recommendation.overview}
-          </p>
+              <p className="mt-2 text-sm text-gray-300">
+                {recommendation.overview}
+              </p>
 
-          <p className="mt-3 text-yellow-400 ">
-            <FaStar /> {recommendation.vote_average}
-          </p>
+              <div className="mt-4 flex items-center gap-1 text-yellow-400">
+                <FaStar />
+                <span>{recommendation.vote_average}</span>
+              </div>
+            </div>
+          </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

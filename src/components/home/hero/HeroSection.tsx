@@ -13,7 +13,7 @@ const HeroSection = () => {
         </p>
 
         <p className="mt-2 text-sm sm:text-base">
-          Elegí un género, seleccioná película o serie y dejá que nosotros te recomendemos algo
+          Seleccioná película o serie, elegí un género, y dejá que nosotros te recomendemos algo
         </p>
       </div>
 
