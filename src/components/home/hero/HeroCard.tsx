@@ -6,6 +6,7 @@ import { Genre } from "@/types/genre";
 import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroCard = () => {
   const [mediaType, setMediaType] = useState<"movie" | "series">("movie");
@@ -97,7 +98,7 @@ const HeroCard = () => {
 
           <button
             onClick={handleRecommend}
-            className=" w-full rounded-xl bg-yellow-600 py-3 font-semibold transition duration-300 hover:bg-yellow-500 hover:scale-110 cursor-pointer"
+            className=" w-full rounded-xl bg-yellow-600 py-3 font-semibold transition duration-300 hover:bg-yellow-500 hover:scale-105 cursor-pointer"
           >
             Recomendar
           </button>
@@ -130,7 +131,14 @@ const HeroCard = () => {
                 <FaStar />
                 <span>{recommendation.vote_average}</span>
               </div>
+              <Link
+              href={`/${mediaType}/${recommendation.id}`}
+              className="mt-auto self-end rounded-xl bg-yellow-600 px-3 py-3 font-semibold transition duration-300 hover:bg-yellow-400"
+            >
+              Ver detalles
+            </Link>
             </div>
+            
           </div>
         </div>
       )}

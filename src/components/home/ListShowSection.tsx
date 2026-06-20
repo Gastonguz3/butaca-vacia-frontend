@@ -7,6 +7,7 @@ import { Series } from "@/types/series/series";
 import { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 const ListShowSection = () => {
   const [moviePage, setMoviePage] = useState(1);
@@ -37,7 +38,7 @@ const ListShowSection = () => {
       {/* PELICULAS */}
       <div className="flex items-center justify-between mb-4 mt-5">
         <h2 className="text-xl md:text-2xl font-bold ">
-          Peliculas Mas Populares
+          Peliculas Más Populares
         </h2>
 
         <div className="flex gap-4">
@@ -66,13 +67,15 @@ const ListShowSection = () => {
             className="rounded-xl bg-black/30 border border-yellow-600/20 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500 cursor-pointer"
           >
             <div className="overflow-hidden">
-              <Image
-                alt={movie.title}
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                width={300}
-                height={300}
-                className="w-full transition-transform duration-300 hover:scale-105"
-              />
+              <Link href={`/movie/${movie.id}`}>
+                <Image
+                  alt={movie.title}
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  width={300}
+                  height={300}
+                  className="w-full transition-transform duration-300 hover:scale-105"
+                />
+              </Link>
             </div>
             <div className="p-2">
               <p className="line-clamp-2 text-md font-medium text-center">
@@ -85,7 +88,7 @@ const ListShowSection = () => {
 
       {/* SERIE */}
       <div className="flex items-center justify-between mb-4 mt-5">
-        <h2 className="text-xl md:text-2xl font-bold ">Series Mas Populares</h2>
+        <h2 className="text-xl md:text-2xl font-bold ">Series Más Populares</h2>
 
         <div className="flex gap-4">
           {seriesPage >= 2 && (
@@ -113,13 +116,15 @@ const ListShowSection = () => {
             className="rounded-xl bg-black/30 border border-yellow-600/20 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500 cursor-pointer"
           >
             <div className="overflow-hidden">
-              <Image
-                alt={serie.name}
-                src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
-                width={200}
-                height={200}
-                className="w-full transition-transform duration-300 hover:scale-105"
-              />
+              <Link href={`/series/${serie.id}`}>
+                <Image
+                  alt={serie.name}
+                  src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
+                  width={200}
+                  height={200}
+                  className="w-full transition-transform duration-300 hover:scale-105"
+                />
+              </Link>
             </div>
             <div className="p-2">
               <p className="line-clamp-2 text-md font-medium text-center">
