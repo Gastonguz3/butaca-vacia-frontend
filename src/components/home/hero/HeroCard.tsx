@@ -48,7 +48,7 @@ const HeroCard = () => {
 
   return (
     <div
-      className={`w-full mt-10 flex gap-8 transition-all duration-500 ${
+      className={`w-full mt-10 flex gap-8 transition-all duration-500 mb-20 ${
         recommendation
           ? "flex-col md:flex-row md:-translate-x-2 justify-center items-start"
           : "justify-center"

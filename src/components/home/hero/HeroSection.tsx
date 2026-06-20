@@ -2,7 +2,7 @@ import HeroCard from "./HeroCard";
 
 const HeroSection = () => {
   return (
-    <section id="home" className=" flex flex-col items-center px-4 py-10">
+    <section id="home" className=" flex flex-col items-center px-4 py-10 bg-linear-to-tr from-black via-amber-900 to-yellow-700 text-white">
       <div className="text-center">
         <h1 className="text-3xl font-extrabold sm:text-5xl">
           ¿No sabés qué mirar hoy?

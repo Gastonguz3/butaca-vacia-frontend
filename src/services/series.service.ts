@@ -13,8 +13,8 @@ export const SeriesService = {
     return apiFetch<Series>(`/api/series/discover?genre=${genre}`);
   },
 
-  getPopular(): Promise<PaginatedResponse<Series>> {
-    return apiFetch<PaginatedResponse<Series>>("/api/series/popular");
+  getPopular(page: number, limit: number): Promise<PaginatedResponse<Series>> {
+    return apiFetch<PaginatedResponse<Series>>(`/api/series/popular?page=${page}&limit=${limit}`);
   },
 
   getDetails(id: number): Promise<SeriesDetails> {

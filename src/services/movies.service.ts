@@ -13,8 +13,8 @@ export const MoviesService = {
     return apiFetch<Movie>(`/api/movies/discover?genre=${genre}`);
   },
 
-  getPopular(): Promise<PaginatedResponse<Movie>> {
-    return apiFetch<PaginatedResponse<Movie>>("/api/movies/popular");
+  getPopular(page: number, limit: number): Promise<PaginatedResponse<Movie>> {
+    return apiFetch<PaginatedResponse<Movie>>(`/api/movies/popular?page=${page}&limit=${limit}`);
   },
 
   getDetails(id: number): Promise<MovieDetails> {
