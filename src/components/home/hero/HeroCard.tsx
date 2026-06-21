@@ -129,7 +129,7 @@ const HeroCard = () => {
 
               <div className="mt-4 flex items-center gap-1 text-yellow-400">
                 <FaStar />
-                <span>{recommendation.vote_average}</span>
+                <span>{recommendation.vote_average.toFixed(1)}</span>
               </div>
               <Link
               href={`/${mediaType}/${recommendation.id}`}

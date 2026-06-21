@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.className}  h-full antialiased scroll-smooth`}
+      className={`${poppins.className}  h-full antialiased `}
     >
       <body className="min-h-full flex flex-col text-white">
         <Navbar />

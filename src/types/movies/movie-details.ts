@@ -2,8 +2,8 @@ import { Genre } from "../genre";
 import { Movie } from "./movie";
 
 export type MovieDetails = Movie & {
+  //Saga / franquicia
   belongs_to_collection: {
-    //Saga / franquicia
     id: number;
     name: string;
     poster_path: string | null;

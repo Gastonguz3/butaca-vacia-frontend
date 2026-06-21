@@ -9,7 +9,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 
-const ListShowSection = () => {
+const ListPopularShowsSection = () => {
   const [moviePage, setMoviePage] = useState(1);
   const [seriesPage, setSeriesPage] = useState(1);
 
@@ -138,4 +138,4 @@ const ListShowSection = () => {
   );
 };
 
-export default ListShowSection;
+export default ListPopularShowsSection;

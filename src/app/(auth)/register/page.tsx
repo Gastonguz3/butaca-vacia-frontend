@@ -6,7 +6,7 @@ import { MdEmail } from "react-icons/md";
 
 const page = () => {
   return (
-    <section className="flex flex-col min-h-[70vh] items-center justify-center ">
+    <section className="flex flex-col min-h-screen items-center align-middle bg-linear-to-tr from-black via-amber-900 to-yellow-700 text-white">
       <h1 className="text-3xl md:text-4xl font-extrabold ">Crea Tu Perfil</h1>
       <p className="mt-3 text-gray-300 font-semibold text-center px-4">Hay una butaca vacía reservada para vos, ocupá tu lugar entre quienes aman el cine</p>
       <div className="rounded-lg border-black bg-white/20 w-[90%] md:w-[70%] lg:w-[40%] mt-5 px-3 py-5 ">

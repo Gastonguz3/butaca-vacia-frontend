@@ -1,11 +1,11 @@
 import HeroSection from "@/components/home/hero/HeroSection";
-import ListShowSection from "@/components/home/ListShowSection";
+import ListPopularShowsSection from "@/components/home/ListPopularShowsSection";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <ListShowSection/>
+      <ListPopularShowsSection />
     </>
   );
 }

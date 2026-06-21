@@ -1,4 +1,4 @@
-import { Genre } from "./genre";
+import { Genre } from "../genre";
 import { Series } from "./series";
 
 export type SeriesDetails = Series & {
@@ -8,7 +8,7 @@ export type SeriesDetails = Series & {
     profile_path: string | null;
   }[];
   genres: Genre[];
-  networks: {   //Plataformas que lo emite (Netflix, Hbo, etc.)
+  networks: {   //Canales que lo emite o emitio
     id: number;
     name: string;
     logo_path: string | null;

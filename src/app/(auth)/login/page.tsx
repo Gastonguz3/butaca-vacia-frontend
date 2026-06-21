@@ -12,7 +12,7 @@ const page = () => {
   });
 
   return (
-    <section className="flex flex-col min-h-[70vh] items-center justify-center ">
+    <section className="flex flex-col min-h-[70vh] items-center justify-center bg-linear-to-tr from-black via-amber-900 to-yellow-700 text-white">
       <h1 className="text-3xl md:text-4xl font-extrabold  ">
         ¡Bienvenido de Nuevo!
       </h1>
