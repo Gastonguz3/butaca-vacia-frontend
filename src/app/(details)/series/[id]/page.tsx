@@ -1,3 +1,4 @@
+import ListRecommendationSeries from "@/components/features/series/ListRecommendationSeries";
 import { SeriesService } from "@/services/series.service";
 import Image from "next/image";
 import { FaCalendarAlt, FaTv, FaStar } from "react-icons/fa";
@@ -209,6 +210,9 @@ async function SeriesDetailsPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+      {/*Recomandaciones */}
+
+      <ListRecommendationSeries id={series.id}/>
     </main>
   );
 }

@@ -1,3 +1,4 @@
+import ListRecommendationMovie from "@/components/features/movie/ListRecommedationMovie";
 import { MoviesService } from "@/services/movies.service";
 import Image from "next/image";
 import { FaCalendarAlt, FaClock, FaStar } from "react-icons/fa";
@@ -152,6 +153,8 @@ async function MovieDetailsPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+      {/*Recomendaciones */}
+      <ListRecommendationMovie id={movie.id} />
     </main>
   );
 }
