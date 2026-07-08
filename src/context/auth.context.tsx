@@ -17,6 +17,7 @@ type AuthContextType = {
   login: (data: Login) => Promise<void>;
   register: (data: Register) => Promise<void>;
   logout: () => Promise<void>;
+  deleteAccount: () => Promise<void>;
 };
 
 export const AuthContext = createContext<AuthContextType | null>(null);
@@ -47,12 +48,25 @@ export function AuthProvider({ children }: Props) {
   }
 
   async function logout() {
-    if (accessToken) {
-      await AuthService.logout(accessToken);
+    try {
+      if (accessToken) {
+        await AuthService.logout(accessToken);
+      }
+    } finally {
+      setAccessToken(null);
+      setUser(null);
     }
+  }
 
-    setAccessToken(null);
-    setUser(null);
+  async function deleteAccount() {
+    if (!accessToken) return;
+
+    try {
+      await UserService.deleteAccount(accessToken);
+    } finally {
+      setAccessToken(null);
+      setUser(null);
+    }
   }
 
   useEffect(() => {
@@ -88,6 +102,7 @@ export function AuthProvider({ children }: Props) {
         login,
         register,
         logout,
+        deleteAccount,
       }}
     >
       {children}

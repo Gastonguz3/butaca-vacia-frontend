@@ -37,12 +37,8 @@ const RegisterPage = () => {
       toast.success("¡Cuenta creada correctamente!");
 
       router.push("/");
-    } catch (error) {
-      if (error instanceof Error) {
-        toast.error(error.message);
-      } else {
-        toast.error("Ocurrió un error inesperado");
-      }
+    } catch (error:any) {
+      toast.error(error.message);
     } finally {
       setLoading(false);
     }

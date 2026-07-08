@@ -36,12 +36,8 @@ const LoginPage = () => {
       await login(data);
 
       router.push("/");
-    } catch (error) {
-      if (error instanceof Error) {
-        toast.error(error.message);
-      } else {
-        toast.error("Ocurrió un error inesperado");
-      }
+    } catch (error: any) {
+      toast.error(error.message);
     } finally {
       setLoading(false);
     }
@@ -59,12 +55,9 @@ const LoginPage = () => {
 
       <div className="rounded-lg border-black bg-white/20 w-[90%] md:w-[70%] lg:w-[40%] mt-5 px-3 py-5">
         <form onSubmit={handleSubmit} className="space-y-4">
-
           {/* Email */}
 
-          <label className="font-medium text-gray-200">
-            Email
-          </label>
+          <label className="font-medium text-gray-200">Email</label>
 
           <div className="relative">
             <FaUser className="absolute left-3 top-1/2 -translate-y-1/2" />
@@ -81,9 +74,7 @@ const LoginPage = () => {
 
           {/* Contraseña */}
 
-          <label className="font-medium text-gray-200">
-            Contraseña
-          </label>
+          <label className="font-medium text-gray-200">Contraseña</label>
 
           <div className="relative">
             <FaLock className="absolute left-3 top-1/2 -translate-y-1/2" />
@@ -102,11 +93,7 @@ const LoginPage = () => {
               onClick={() => setSeePassword(!seePassword)}
               className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
             >
-              {seePassword ? (
-                <FaEyeSlash size={20} />
-              ) : (
-                <FaEye size={20} />
-              )}
+              {seePassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
             </button>
           </div>
 
