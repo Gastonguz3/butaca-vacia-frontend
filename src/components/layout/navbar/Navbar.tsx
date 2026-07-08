@@ -7,8 +7,8 @@ const Navbar = () => {
       <div className="flex justify-between items-center h-full w-[90%] mx-auto ">
         <Logo />
         <div className="flex gap-x-4">
-          <LinkButton href="login" title="Iniciar Sesión"/>
-          <LinkButton href="register" title="Registrarse"/>
+          <LinkButton href="/login" title="Iniciar Sesión"/>
+          <LinkButton href="/register" title="Registrarse"/>
         </div>
       </div>
     </nav>

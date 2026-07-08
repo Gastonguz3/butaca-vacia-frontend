@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/navbar/Navbar";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/layout/Footer";
+import { AuthProvider } from "@/context/auth.context";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -13,7 +14,8 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Butaca Vacia App",
-  description: "App que recomienda peliculas y series basadas en los gustos del usuario",
+  description:
+    "App que recomienda peliculas y series basadas en los gustos del usuario",
 };
 
 export default function RootLayout({
@@ -22,15 +24,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${poppins.className}  h-full antialiased `}
-    >
+    <html lang="en" className={`${poppins.className}  h-full antialiased `}>
       <body className="min-h-full flex flex-col text-white">
-        <Navbar />
-        {children}
-        <Footer/>
-        <Toaster/>
+        <AuthProvider>
+          <Navbar />
+          {children}
+          <Footer />
+          <Toaster
+            position="bottom-center"
+            toastOptions={{
+              success: {
+                duration: 3000,
+              },
+              error: {
+                duration: 4000,
+              },
+            }}
+          />
+        </AuthProvider>
       </body>
     </html>
   );

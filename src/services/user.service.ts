@@ -1,8 +1,8 @@
 import { PaginatedResponse } from "@/types/paginated-response";
-import { UserResponse } from "@/types/user-response";
+import { UserResponse } from "@/types/user/user-response";
 import { apiFetch } from "./api";
-import { UpdateUser } from "@/types/update-user";
-import { ChangePassword } from "@/types/change-password";
+import { UpdateUser } from "@/types/user/update-user";
+import { ChangePassword } from "@/types/user/change-password";
 
 export const UserService = {
   async getProfile(accessToken: string): Promise<UserResponse> {
