@@ -1,5 +1,5 @@
-import HeroSection from "@/components/home/hero/HeroSection";
-import ListPopularShowsSection from "@/components/home/ListPopularShowsSection";
+import HeroSection from "@/components/features/home/hero/HeroSection";
+import ListPopularShowsSection from "@/components/features/home/ListPopularShowsSection";
 
 export default function Home() {
   return (

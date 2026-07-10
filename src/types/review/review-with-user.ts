@@ -8,7 +8,7 @@ export type ReviewWithUser = {
   updatedAt: Date;
 
   user: {
-    id?: string;
+    id: string;
     username: string;
   };
 }

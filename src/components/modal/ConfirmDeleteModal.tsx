@@ -3,6 +3,10 @@
 type Props = {
   open: boolean;
   loading?: boolean;
+
+  title: string;
+  message: string;
+
   onCancel: () => void;
   onConfirm: () => void;
 };
@@ -10,6 +14,8 @@ type Props = {
 export default function ConfirmDeleteModal({
   open,
   loading,
+  title,
+  message,
   onCancel,
   onConfirm,
 }: Props) {
@@ -18,14 +24,10 @@ export default function ConfirmDeleteModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
       <div className="w-full max-w-md rounded-2xl border border-red-500/20 bg-zinc-900 p-6">
-        <h2 className="text-2xl font-bold text-red-400">Eliminar cuenta</h2>
+        <h2 className="text-2xl font-bold text-red-400">{title}</h2>
 
         <p className="mt-4 text-gray-300">
-          Esta acción es permanente y no podrá deshacerse.
-        </p>
-
-        <p className="mt-3 text-gray-300">
-          Se eliminarán también todos tus comentarios.
+          {message}
         </p>
 
         <div className="mt-8 flex justify-end gap-3">

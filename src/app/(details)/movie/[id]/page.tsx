@@ -1,4 +1,5 @@
 import ListRecommendationMovie from "@/components/features/movie/ListRecommedationMovie";
+import ReviewSection from "@/components/features/review/ReviewSection";
 import { MoviesService } from "@/services/movies.service";
 import Image from "next/image";
 import { FaCalendarAlt, FaClock, FaStar } from "react-icons/fa";
@@ -153,6 +154,10 @@ async function MovieDetailsPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* Comentarios */}
+      <ReviewSection tmdbId={movie.id} mediaType="MOVIE" />
+
       {/*Recomendaciones */}
       <ListRecommendationMovie id={movie.id} />
     </main>

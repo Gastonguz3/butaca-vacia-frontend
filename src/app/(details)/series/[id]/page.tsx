@@ -1,3 +1,4 @@
+import ReviewSection from "@/components/features/review/ReviewSection";
 import ListRecommendationSeries from "@/components/features/series/ListRecommendationSeries";
 import { SeriesService } from "@/services/series.service";
 import Image from "next/image";
@@ -210,8 +211,10 @@ async function SeriesDetailsPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-      {/*Recomandaciones */}
+      {/* Comentarios */}
+      <ReviewSection tmdbId={series.id} mediaType="SERIES" />
 
+      {/*Recomendaciones */}
       <ListRecommendationSeries id={series.id}/>
     </main>
   );

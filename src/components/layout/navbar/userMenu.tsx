@@ -36,7 +36,7 @@ const UserMenu = () => {
     try {
       setLoadingDelete(true);
 
-      await deleteAccount()
+      await deleteAccount();
 
       toast.success("La cuenta fue eliminada correctamente.");
 
@@ -112,6 +112,8 @@ const UserMenu = () => {
       </div>
 
       <ConfirmDeleteModal
+        title="Eliminar cuenta"
+        message="¿Estás seguro de que querés eliminar tu cuenta? Esta acción es irreversible."
         open={openDelete}
         loading={loadingDelete}
         onCancel={() => setOpenDelete(false)}
