@@ -4,6 +4,7 @@ export type ReviewResponse = {
   comment: string;
   tmdbId: number;
   mediaType: 'MOVIE' | 'SERIES';
+  titleShow: string;
   userId: string;
   createdAt: Date;
   updatedAt: Date;

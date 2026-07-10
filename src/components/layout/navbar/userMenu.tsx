@@ -1,5 +1,6 @@
 "use client";
 
+import ChangePasswordModal from "@/components/modal/ChangePasswordModal";
 import ConfirmDeleteModal from "@/components/modal/ConfirmDeleteModal";
 import { useAuth } from "@/hooks/useAuth";
 import { UserService } from "@/services/user.service";
@@ -18,11 +19,12 @@ const UserMenu = () => {
   const [openDelete, setOpenDelete] = useState(false);
   const [loadingDelete, setLoadingDelete] = useState(false);
 
+  const [openPassword, setOpenPassword] = useState(false);
+  const [loadingPassword, setLoadingPassword] = useState(false);
+
   async function handleLogout() {
     try {
       await logout();
-
-      toast.success("Sesión cerrada");
 
       router.replace("/");
     } catch {
@@ -46,6 +48,43 @@ const UserMenu = () => {
     } finally {
       setLoadingDelete(false);
       setOpenDelete(false);
+    }
+  }
+
+  async function handleChangePassword(
+    currentPassword: string,
+    newPassword: string,
+    confirmPassword: string,
+  ) {
+    if (!accessToken) return;
+
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      toast.error("Completa todos los campos");
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      toast.error("Las contraseñas no coinciden");
+      return;
+    }
+
+    try {
+      setLoadingPassword(true);
+
+      await UserService.changePassword(accessToken, {
+        currentPassword,
+        newPassword,
+      });
+
+      toast.success("Contraseña actualizada");
+
+      setOpenPassword(false);
+    } catch (error) {
+      if (error instanceof Error) {
+        toast.error(error.message);
+      }
+    } finally {
+      setLoadingPassword(false);
     }
   }
 
@@ -78,21 +117,15 @@ const UserMenu = () => {
               Mi Perfil
             </Link>
 
-            <Link
-              href="/profile/password"
-              className="block px-4 py-3 transition hover:bg-yellow-600/10"
-              onClick={() => setOpen(false)}
+            <button
+              onClick={() => {
+                setOpen(false);
+                setOpenPassword(true);
+              }}
+              className="block w-full px-4 py-3 text-left transition hover:bg-yellow-600/10 cursor-pointer"
             >
               Cambiar contraseña
-            </Link>
-
-            <Link
-              href="/profile/reviews"
-              className="block px-4 py-3 transition hover:bg-yellow-600/10"
-              onClick={() => setOpen(false)}
-            >
-              Mis comentarios
-            </Link>
+            </button>
 
             <button
               onClick={() => setOpenDelete(true)}
@@ -118,6 +151,13 @@ const UserMenu = () => {
         loading={loadingDelete}
         onCancel={() => setOpenDelete(false)}
         onConfirm={handleDeleteAccount}
+      />
+
+      <ChangePasswordModal
+        open={openPassword}
+        loading={loadingPassword}
+        onCancel={() => setOpenPassword(false)}
+        onSubmit={handleChangePassword}
       />
     </>
   );
