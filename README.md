@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Butaca Vacia - Frontend
 
-## Getting Started
+Frontend desarrollado con **Next.js**, **TypeScript** y **Tailwind CSS** para una plataforma de recomendación de películas y series. Fue desplegado en Vercel.
 
-First, run the development server:
+La aplicación consume una API REST desarrollada en NestJS y permite explorar películas y series, consultar sus detalles, crear comentarios, administrar el perfil del usuario y recibir recomendaciones personalizadas.
+
+Este proyecto fue desarrollado como parte de mi portfolio para demostrar conocimientos en desarrollo frontend moderno utilizando React, Next.js y buenas prácticas.
+
+Para ver la **pagina** [ingrese aca](https://butaca-vacia.vercel.app/)
+
+Para ver el **codigo del backend** [ingrese aca](https://github.com/Gastonguz3/butaca-vacia-backend)
+
+## Tecnologías
+
+- Next.js 
+- React 
+- TypeScript
+- Tailwind CSS
+- React Context API
+- React Hot Toast
+- React Icons
+
+
+## Funcionalidades
+
+- Registro e inicio de sesión.
+- Autenticación persistente mediante Context API.
+- Exploración de películas y series populares.
+- Búsqueda de detalles completos y recomendaciones de películas y series.
+- Sistema de comentarios y puntuaciones.
+- Edición y eliminación de comentarios.
+- Gestión del perfil del usuario.
+- Cambio de contraseña y eliminación de cuenta.
+
+
+## Autenticación
+
+La autenticación se comunica con la API del backend mediante JWT.
+
+La aplicación implementa:
+
+- Inicio de sesión.
+- Registro.
+- Renovación automática del Access Token.
+- Cierre de sesión.
+- Protección de funcionalidades para usuarios autenticados.
+
+Los usuarios autenticados pueden:
+
+- publicar, editar y eliminar comentarios
+- puntuar películas y series
+
+## Instalación
+
+### 1. Clonar el repositorio
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Gastonguz3/butaca-vacia-frontend
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Instalar dependencias
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm install
+```
 
-## Learn More
+### 3. Configurar variables de entorno
 
-To learn more about Next.js, take a look at the following resources:
+Crear un archivo `.env.local`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_NEST_API_URL=http://localhost:4000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Ejecutar el proyecto
 
-## Deploy on Vercel
+```bash
+pnpm dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+La aplicación estará disponible en:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+http://localhost:3000
+```
+
+## Páginas principales
+
+| Ruta | Descripción |
+|:------|:------------|
+| `/` | Página principal |
+| `/login` | Inicio de sesión |
+| `/register` | Registro |
+| `/movie/:id` | Detalles de una película |
+| `/series/:id` | Detalles de una serie |
+| `/profile` | Perfil del usuario |
+
+## Diseño
+
+### Pantalla Principal 
+![](./public/principal.png)
+
+### Pantalla de los detalles
+![](./public/detalles.png)
+
+### Pantalla del perfil
+![](./public/perfil.png)
+
+#### Autor: Gaston Guzman [linKedIn](https://www.linkedin.com/in/gaston-guzman-192730352/).
